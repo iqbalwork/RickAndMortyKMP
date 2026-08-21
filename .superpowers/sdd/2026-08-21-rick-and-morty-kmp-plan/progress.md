@@ -14,3 +14,9 @@
 ## Progress
 
 - [x] Task 1: Setup KMP Gradle 9 project and dependencies (commit: `85721af`)
+- [x] Task 2: Add type-safe Result and DataError abstractions (commit: `30ad89d`)
+- [x] Task 3: Setup Ktor 3 client with safe api caller and DI modules (commit: `99db7d7`)
+- [x] Task 4: Setup Room Multiplatform with entities and DAOs (commit: `dcc9930`)
+- [x] Task 5: Create Rick & Morty Sci-Fi design system and theme components (commit: `7f2f5e4`)
+- [x] Task 6: Implement Characters list, search/filter, pagination, detail screen and favorites toggle (commit: `29327b1`)
+
