@@ -19,4 +19,6 @@
 - [x] Task 4: Setup Room Multiplatform with entities and DAOs (commit: `dcc9930`)
 - [x] Task 5: Create Rick & Morty Sci-Fi design system and theme components (commit: `7f2f5e4`)
 - [x] Task 6: Implement Characters list, search/filter, pagination, detail screen and favorites toggle (commit: `29327b1`)
+- [x] Task 7: Implement Locations list, filters, pagination, and detail screen with residents (commit: `7eeeedf`)
+
 
