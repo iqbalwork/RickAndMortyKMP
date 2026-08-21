@@ -21,6 +21,8 @@
 - [x] Task 6: Implement Characters list, search/filter, pagination, detail screen and favorites toggle (commit: `29327b1`)
 - [x] Task 7: Implement Locations list, filters, pagination, and detail screen with residents (commit: `7eeeedf`)
 - [x] Task 8: Implement Episodes list, season filters, pagination, detail screen with cast, and favorites toggle (commit: `e704136`)
+- [x] Task 9: Implement unified Favorites Vault screen with segmented tabs for characters and episodes (commit: `6375e8c`)
+
 
 
 
