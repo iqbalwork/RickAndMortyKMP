@@ -12,3 +12,5 @@
 
 ---
 ## Progress
+
+- [x] Task 1: Setup KMP Gradle 9 project and dependencies (commit: `85721af`)
