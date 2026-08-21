@@ -93,6 +93,7 @@ graph TD
 
 ```text
 RickAndMortyKMP/
+├── .run/                               # ⚙️ Shared IDE Run Configurations (iOS & Desktop)
 ├── androidApp/                         # Android application entry point & Manifest
 │   └── src/main/java/.../MainActivity.kt
 ├── composeApp/                         # 🌟 Shared Multiplatform Module
@@ -103,7 +104,7 @@ RickAndMortyKMP/
 │       │   │   ├── designsystem/       # M3 Theme, Colors, Typography, & Shared Components
 │       │   │   ├── network/            # Ktor Client Factory & Safe API Call wrappers
 │       │   │   └── util/               # Result wrapper, Error handling, Extensions
-│       │   ├── di/                     # Koin Modules (AppModule, NetworkModule, DatabaseModule)
+│       │   ├── di/                     # Koin Modules (KoinHelper, AppModule, NetworkModule, DatabaseModule)
 │       │   ├── navigation/             # Type-safe Navigation Graph & Bottom Navigation Bar
 │       │   └── features/
 │       │       ├── characters/         # Character feature (data, domain, presentation)
@@ -111,12 +112,19 @@ RickAndMortyKMP/
 │       │       ├── episodes/           # Episode feature (data, domain, presentation)
 │       │       └── favorites/          # Favorites Vault feature
 │       ├── androidMain/                # Android platform-specific implementations
-│       └── desktopMain/                # Desktop platform-specific implementations (JVM Main)
+│       ├── desktopMain/                # Desktop platform-specific implementations (JVM Main)
+│       └── iosMain/                    # iOS platform-specific implementations (MainViewController)
 ├── docs/                               # 📚 Step-by-step Implementation docs
 │   ├── implementation_plan.md
 │   └── progress.md
-└── gradle/
-    └── libs.versions.toml              # Centralized Version Catalog
+├── gradle/
+│   └── libs.versions.toml              # Centralized Version Catalog
+└── iosApp/                             # 🍎 iOS Native Entry Point (SwiftUI & Xcode Project)
+    ├── iosApp/
+    │   ├── iOSApp.swift                # App entry point
+    │   ├── ContentView.swift           # UIViewControllerRepresentable bridging Compose
+    │   └── Info.plist                  # iOS metadata & ProMotion configuration
+    └── iosApp.xcodeproj                # Xcode Project configuration
 ```
 
 ---
@@ -127,6 +135,7 @@ RickAndMortyKMP/
 
 - **JDK 17 or 21** installed and configured (`JAVA_HOME`).
 - **Android Studio** (Ladybug / Meerkat or later) with Kotlin Multiplatform plugin.
+- **Xcode 15+** and **macOS** (for building and running the iOS target).
 
 ### Clone & Run
 
@@ -140,12 +149,17 @@ RickAndMortyKMP/
    ```bash
    ./gradlew :composeApp:run
    ```
+   *Or select `desktopApp` configuration in Android Studio / IntelliJ and click **Run**.*
 
 3. **Run Android App:**
    ```bash
    ./gradlew :androidApp:installDebug
    ```
    *Or select `androidApp` configuration in Android Studio and click **Run**.*
+
+4. **Run iOS App:**
+   - Select `iosApp` configuration in Android Studio, choose an iOS Simulator, and click **Run**.
+   - *Or open `iosApp/iosApp.xcodeproj` in Xcode and press `Cmd + R`.*
 
 ---
 
@@ -158,7 +172,7 @@ In **UZIRO KMP Sharing Session #01**, we explore:
    - Code-sharing spectrum: Logic only vs Full UI with Compose Multiplatform
 2. **Setup Kotlin Multiplatform & Compose Environment**
    - Gradle Version Catalogs (`libs.versions.toml`)
-   - Target configuration (`commonMain`, `androidMain`, `desktopMain`)
+   - Target configuration (`commonMain`, `androidMain`, `iosMain`, `desktopMain`)
 3. **Build Your First Shared Architecture**
    - Clean architecture separation (Data → Domain → Presentation)
    - Ktor Client configuration & Network resilience
